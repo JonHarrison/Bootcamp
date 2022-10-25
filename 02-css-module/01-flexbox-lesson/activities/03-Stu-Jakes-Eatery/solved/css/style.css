@@ -1,5 +1,139 @@
 /* Navigation styles */
+.logo
+{
+    background: white;
+    height: 230px;
+    background-image: url("../images/jakes-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav
+{
+    display: flex;
+    background-color: black;
+    padding: 20px;
+}
+
+.nav .left, .nav .right, .nav .center
+{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .left, .nav .right
+{
+    width: 25%;
+}
+
+.nav .center
+{
+    width: 50%;
+}
+
+.nav .center a
+{
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: Arial;
+}
+
+.nav button
+{
+    color: black;
+    font-size: 16px;
+    padding: 15px;
+    width: 50%;
+}
+
+.nav .right button
+{
+    background-color: yellow;
+}
+
+.nav .left button
+{
+    background-color: skyblue;
+}
 
 /* Column styles */
+.column
+{
+    display: flex;
+    height: 1200px;
+    width: 800px;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.column .meal1, .column .meal2, .column .meal3
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.column .meal1
+{
+    margin-top: 20px;
+    background-image: url("../images/steak.png");
+}
+
+.column .meal2
+{
+    background-image: url("../images/soup.png");
+}
+
+.column .meal3
+{
+    background-image: url("../images/cheesecake.png");
+}
+
+.column .text
+{
+    background: rgb(0,0,0);
+    width: 100%;
+    padding: 20px 40px;
+    color: white;
+}
+
+.column .text p
+{
+    color: rgba(255,255,255, 0.7);
+    font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
+.column .text h1
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 /* Footer Styles */
+.footer
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer .fb
+{
+    color: SkyBlue;
+}
+
+.footer .tw
+{
+    color: yellow:
+}
+
+.footer .ig
+{
+    color: red;
+}
