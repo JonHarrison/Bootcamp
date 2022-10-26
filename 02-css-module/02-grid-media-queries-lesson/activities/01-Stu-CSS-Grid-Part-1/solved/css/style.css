@@ -3,8 +3,56 @@ body {
 }
 
 /* Grid CSS */
+#heroGrid
+{
+  margin: 0px 5%;
+  display: grid;
+  min-height: 500px;
+  height: 70vh;
+  grid-template-rows: 75% 25%;
+  grid-template-columns: 75% 25%;
+  grid-template-areas:
+  "featuredProduct secondaryProduct"
+  "featuredProduct CTA";
+}
 
+#featuredProduct {
+  grid-area: featuredProduct;
+  background-image: url("../images/furniture1.jpg");
+}
 
+#secondaryProduct {
+  grid-area: secondaryProduct;
+  background-image: url("../images/furniture2.png");
+}
+
+#CTA {
+  grid-area: CTA;
+  background-image: url("../images/woodbg.png");
+  /* justify-content: 0px 5%; */
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.heroGridArea {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+#headline
+{
+  border: 5px solid #FF6200;
+  background-color: rgba(255,255,255, 0.8);
+  position: absolute;
+  z-index: 1;
+  padding: 25px;
+  max-width: 550px;
+  right: -50px;
+}
 /* Category Grid CSS */
 
 
