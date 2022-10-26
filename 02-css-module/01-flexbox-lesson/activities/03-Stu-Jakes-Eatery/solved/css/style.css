@@ -99,7 +99,7 @@
 
 .column .text
 {
-    background: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.7);
     width: 100%;
     padding: 20px 40px;
     color: white;
