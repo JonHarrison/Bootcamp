@@ -68,3 +68,22 @@ p {
   text-decoration: none;
   background: black;
 }
+
+.jumboCopy {
+  width: 70%;
+  min-width: 500px;
+  max-width: 700px;
+  color: white;
+  text-align: center;
+}
+
+.rockBackground {
+  background-image: url('../images/rockOn_dark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  height: calc(100vh - 25px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
