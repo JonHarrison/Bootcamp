@@ -96,4 +96,4 @@ In this step, you’ll turn items into flex containers and set their flex direct
 
 ---
 
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

@@ -76,4 +76,4 @@ Press `tab` key once to autocomplete once you have typed a unique portion of a f
 
 ---
 
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

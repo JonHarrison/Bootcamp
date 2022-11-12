@@ -118,4 +118,4 @@ You are required to submit the following for review:
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
 ---
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

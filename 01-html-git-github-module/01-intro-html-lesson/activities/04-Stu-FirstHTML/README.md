@@ -16,4 +16,4 @@ Feeling fancy? Add a line break and another sentence saying, "Hello, world!"
 
 ---
 
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

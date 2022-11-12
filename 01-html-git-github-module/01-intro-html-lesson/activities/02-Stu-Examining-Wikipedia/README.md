@@ -14,4 +14,4 @@ In this activity, you'll take a moment to examine/modify a Wikipedia page using 
 
 ---
 
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

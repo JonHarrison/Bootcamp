@@ -1,0 +1,20 @@
+get user choice
+get computer choice
+evaluate win / loose / draw
+given
+* Rock: wins against scissors, loses to paper, and ties against itself.
+* Paper: wins against rock, loses to scissors, and ties against itself.
+* Scissors: wins against paper, loses to rock, and ties against itself.
+if (user and computer guess the same) draw
+else
+  if (user guesses rock)
+    if (computer guesses scissors) user wins (rock blunts scissors)
+    if (computer guesses paper) computer wins (paper wraps rock)
+  if (user guesses paper)
+    if (computer guesses rock) user wins (paper wraps rock)
+    if (computer guesses scissors) computer wins (scissors cuts paper)
+  if (user guesses scissors)
+    if (computer guesses paper) user wins (scissors cuts paper)
+    if (computer guesses rock) computer wins (rock blunts scissors)
+endif
+output result

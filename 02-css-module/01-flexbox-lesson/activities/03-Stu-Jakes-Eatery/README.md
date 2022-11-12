@@ -101,4 +101,4 @@ During this activity, you will test your CSS Flexbox skills by building a webpag
 
 ---
 
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

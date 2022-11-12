@@ -9,4 +9,4 @@ The following image shows the start of a wireframe for the mini-project for this
 * The areas outlined in blue represent columns.
 
 ---
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

@@ -53,4 +53,4 @@ The completed application should meet the following criteria:
 * Set this project up in your own GitHub repositories so that you can deploy and use it for future reference!
 
 ---
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
