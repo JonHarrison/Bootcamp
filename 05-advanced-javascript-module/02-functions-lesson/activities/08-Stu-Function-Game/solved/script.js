@@ -38,33 +38,18 @@ function evaluate() {
   console.log("Dealer scores : " + dealer.score);
 
   var output = "Player score " + player.score + " , dealer score " + dealer.score + "\n";
-  if (player.score > 21) {
-    output += " player bust ";
-    if (dealer.score <= 21) {
-      output += " dealer wins ";
+  if (dealer.score > 21) {
+    output += "Dealer bust, player wins";
     }
     else {
-      output += " both bust ";
+    if (dealer.score == player.score) {
+      output += "Both draw ";
     }
-  }
-  else if (dealer.score > 21) {
-    output += " dealer bust";
-    if (player.score <= 21) {
-      output += " player wins ";
+    else if (player.score > dealer.score) {
+      output += "Player wins";
     }
     else {
-      output += " both bust";
-    }
-  }
-  else if (dealer.score == player.score) {
-    output += " both draw ";
-  }
-  else {
-    if (player.score > dealer.score) {
-      output += " player wins ";
-    }
-    else {
-      output += " dealer wins ";
+      output += "Dealer wins";
     }
   }
 
