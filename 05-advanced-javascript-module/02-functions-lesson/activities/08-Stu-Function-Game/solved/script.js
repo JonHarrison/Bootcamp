@@ -20,7 +20,7 @@ var dealer = {
   }
 };
 
-function reset() {
+function resetGame() {
   player.score = 0;
   player.cards = [];
   dealer.score = 0;
@@ -32,41 +32,41 @@ function random(min, max) {
 }
 
 function evaluate() {
-  console.log("Player cards", player.cards);
-  console.log("Dealer cards", dealer.cards);
-  console.log("Player scores : " + player.score);
-  console.log("Dealer scores : " + dealer.score);
 
   var output = "Player scores " + player.score + " with hand [" + player.cards + "] : dealer scores " + dealer.score + " with hand [" + dealer.cards + "]\n";
   if (dealer.score > 21) {
     if (player.score > 21) {
       output += "Both bust";
     }
-    else {
+    else { // dealer>21 and player<=21
       output += "Dealer bust, player wins";
     }
   }
-  else {
-    if (dealer.score == player.score) {
-      output += "Both draw ";
+  else { // dealer<=21
+    if (player.score > 21) { // dealer<=21 and player>21
+      output += "Player bust, dealer wins";
     }
-    else if (player.score > dealer.score) {
-      output += "Player wins";
-    }
-    else {
-      output += "Dealer wins";
+    else { // dealer<=21 and player <=21
+      if (dealer.score == player.score) {
+        output += "Both draw ";
+      }
+      else if (player.score > dealer.score) {
+        output += "Player wins";
+      }
+      else { // dealer < player
+        output += "Dealer wins";
+      }
     }
   }
-
-  console.log(output);
-  alert(output);
+  
+  return output;
 
 }
 
 function game() {
 
   // reset game state
-  reset();
+  resetGame();
 
   // * Deals the player a random number between 4 and 21 inclusive.  player += random(4,21);
   player.addCard(4, 21);
@@ -96,13 +96,48 @@ function game() {
       } while (dealer.score <= 17);
   }
 
-  evaluate();
+  console.log("Player cards", player.cards);
+  console.log("Dealer cards", dealer.cards);
+  console.log("Player scores : " + player.score);
+  console.log("Dealer scores : " + dealer.score);
+
+  var output = evaluate();
+  console.log(output);
+  alert(output);
 
 }
 
-window.onload = function() {
+function unitTestCheckEvaluate(playerScore,dealerScore,expectedResult) {
+  player.score = playerScore;
+  dealer.score = dealerScore;
+  // check result contains expected string
+  result  = evaluate().toLowerCase().includes(expectedResult.toLowerCase());
+  var output = result ? "PASS : ["  : "FAIL : [";
+  output += "Player:" + player.score + " " + "Dealer:" + dealer.score + " Expected outcome:" + expectedResult + "]";
+  console.log(output);
+  return result;
+}
+
+unitTest();
+function unitTest() {
+  console.log("unitTestCheckEvaluate()");
+  var result = true;
+  result &= unitTestCheckEvaluate(20,20,"Both draw");
+  result &= unitTestCheckEvaluate(21,21,"Both draw");
+  result &= unitTestCheckEvaluate(20,21,"Dealer wins");
+  result &= unitTestCheckEvaluate(21,20,"Player wins");
+  result &= unitTestCheckEvaluate(22,22,"Both bust");
+  result &= unitTestCheckEvaluate(23,22,"Both bust");
+  result &= unitTestCheckEvaluate(22,23,"Both bust");
+  result &= unitTestCheckEvaluate(21,22,"Dealer bust, player wins");
+  result &= unitTestCheckEvaluate(22,21,"Player bust, dealer wins");
+  result ? console.log("PASSED") : console.log("FAILED");
+}
+
+window.addEventListener("load", (event) => {
+  console.log("window.load");
   while(confirm("Do you want to play blackjack?")) {
     game();
   }
   alert("Goodbye");
-}
+});
