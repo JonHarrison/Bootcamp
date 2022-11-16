@@ -40,8 +40,8 @@ function evaluate() {
   var output = "Player score " + player.score + " , dealer score " + dealer.score + "\n";
   if (dealer.score > 21) {
     output += "Dealer bust, player wins";
-    }
-    else {
+  }
+  else {
     if (dealer.score == player.score) {
       output += "Both draw ";
     }
@@ -95,8 +95,9 @@ function game() {
 
 }
 
-while(confirm("Do you want to play blackjack?")) {
-  game();
+window.onload = function() {
+  while(confirm("Do you want to play blackjack?")) {
+    game();
+  }
+  alert("Goodbye");
 }
-
-alert("Goodbye");
