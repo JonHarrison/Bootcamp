@@ -37,9 +37,14 @@ function evaluate() {
   console.log("Player scores : " + player.score);
   console.log("Dealer scores : " + dealer.score);
 
-  var output = "Player score " + player.score + " , dealer score " + dealer.score + "\n";
+  var output = "Player scores " + player.score + " with hand [" + player.cards + "] : dealer scores " + dealer.score + " with hand [" + dealer.cards + "]\n";
   if (dealer.score > 21) {
-    output += "Dealer bust, player wins";
+    if (player.score > 21) {
+      output += "Both bust";
+    }
+    else {
+      output += "Dealer bust, player wins";
+    }
   }
   else {
     if (dealer.score == player.score) {
