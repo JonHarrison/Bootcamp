@@ -21,3 +21,11 @@ site3El.children[1].children[0].setAttribute("alt", "women working");
 site3El.children[1].children[0].setAttribute("style", "padding:10px;");
 
 // Write Your Code Below
+// each site has a h4 element
+const h4 = document.querySelectorAll("h4");
+for (let i = 0; i < h4.length; i++) {
+    h4[i].setAttribute("style", "color: blue; font-size: 30px; font-weight: bold;");
+}
+// the title uses a single h1 element
+const h1 = document.querySelector("h1");
+h1.setAttribute("style", "padding-left:10px; margin:0;");
