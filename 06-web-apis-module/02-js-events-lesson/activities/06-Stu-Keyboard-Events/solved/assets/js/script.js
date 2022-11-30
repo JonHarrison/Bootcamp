@@ -1,11 +1,19 @@
+const keyEl = document.querySelector("#key");
+const codeEl = document.querySelector("#code");
+const statusEl = document.querySelector("#status");
+
 function keydownAction(event) {
-  // TODO: Complete keydown function
+  if (event.key !== undefined){
+    keyEl.innerHTML = event.key;
+    codeEl.innerHTML = event.keyCode; // return ASCII code, deprecated property
+  }
+  statusEl.innerHTML = "KEYDOWN Event";
 }
 
 function keyupAction() {
-  document.querySelector("#status").innerHTML = "KEYUP Event";
+  statusEl.innerHTML = "KEYUP Event";
 }
 
 document.addEventListener("keyup", keyupAction);
-// TODO: Add Event Listener for "keydown" event
+document.addEventListener("keydown", keydownAction);
 
