@@ -14,13 +14,20 @@ function displayMessage(type, message) {
 
 function renderLastRegistered() {
   // Fill in code here to retrieve the last email and password.
+  var lsEmail = localStorage.getItem("email");
+  var lsPassword = localStorage.getItem("password");
   // If they are null, return early from this function
+  if (lsEmail === "" || lsPassword === "") {
+    return;
+  }
   // Else set the text of the userEmailSpan and userPasswordSpan 
   // to the corresponding values form local storage
-  
+
+  userEmailSpan.textContent = lsEmail;
+  userPasswordSpan.textContent = lsPassword;
 }
 
-signUpButton.addEventListener("click", function(event) {
+signUpButton.addEventListener("click", function (event) {
   event.preventDefault();
 
   var email = document.querySelector("#email").value;
@@ -33,6 +40,10 @@ signUpButton.addEventListener("click", function(event) {
   } else {
     displayMessage("success", "Registered successfully");
 
-  // Save email and password to localStorage and render the last registered.
+    // Save email and password to localStorage and render the last registered.
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    renderLastRegistered();
+
   }
 });
