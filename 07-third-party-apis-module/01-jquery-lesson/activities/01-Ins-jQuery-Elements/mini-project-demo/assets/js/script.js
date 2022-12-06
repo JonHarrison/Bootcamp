@@ -26,7 +26,7 @@ function printProjectData(name, type, hourlyRate, dueDate) {
 
   var dueDateTdEl = $('<td>').addClass('p-2').text(dueDate);
 
-  var daysToDate = moment(dueDate, 'DD/MM/YY').diff(moment(), 'days');
+  var daysToDate = moment(dueDate, 'DD/MM/YYYY').diff(moment(), 'days');
   var daysLeftTdEl = $('<td>').addClass('p-2').text(daysToDate);
 
   var totalEarnings = calculateTotalEarnings(hourlyRate, daysToDate);
@@ -84,6 +84,14 @@ function handleProjectFormSubmit(event) {
 
 projectFormEl.on('submit', handleProjectFormSubmit);
 projectDisplayEl.on('click', '.delete-project-btn', handleDeleteProject);
+
+var userLang = navigator.language || navigator.userLanguage; 
+$.datepicker.setDefaults(
+  $.extend(
+    {'dateFormat':'dd/mm/yy'},
+    $.datepicker.regional[userLang]
+  )
+);
 dueDateInputEl.datepicker({ minDate: 1 });
 
 setInterval(displayTime, 1000);
