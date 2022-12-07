@@ -36,10 +36,17 @@
 
     // Stretch Buttons
     $(".stretch-button").on("click", function() {
-      captainPlanet.animate({ width: "1000px" , height: "1000px" });
+      captainPlanet.animate({ width: "1000px" , height: "200px" });
     });
     $(".deflate-button").on("click", function() {
-      captainPlanet.animate({ width: "300px" });
+      captainPlanet.animate({ width: "300px", height: "300px" });
+    });
+
+    // Audio controls
+    $(".laugh-button").on("click", function() {
+      var audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "assets/Sinister Laughs Male 2 - QuickSounds.com.mp3");
+      audioElement.play();
     });
 
     // Move Buttons
