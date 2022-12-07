@@ -34,6 +34,14 @@
       captainPlanet.animate({ opacity: "0.05" });
     });
 
+    // Stretch Buttons
+    $(".stretch-button").on("click", function() {
+      captainPlanet.animate({ width: "1000px" , height: "1000px" });
+    });
+    $(".deflate-button").on("click", function() {
+      captainPlanet.animate({ width: "300px" });
+    });
+
     // Move Buttons
     $(".up-button").on("click", function() {
       captainPlanet.animate({ top: "-=200px" }, "normal");
