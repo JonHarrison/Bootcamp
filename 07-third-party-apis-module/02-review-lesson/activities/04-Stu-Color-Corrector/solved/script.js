@@ -83,8 +83,9 @@ $(document).ready(function() {
     for (let i = 0; i < colorsOfText.length; i++)
     {
       let listEl = $('<li>');
-      listEl.text(colorsOfText[i]);
-      listEl.css('color', random(colorsOfText));
+      listEl.text(colors[i]);
+      listEl.attr('id',colors[i]);
+      listEl.css('color', colorsOfText[i]);
       colorPickerEl.append(listEl);
     }
 
@@ -95,8 +96,6 @@ $(document).ready(function() {
     colorPickerEl.empty();
     randTargetColorEl.empty();
     colorsOfText = [];
-    targetColor = '';
-    targetColorOfText = '';
   }
 
   // Function for resetting colors and setting new colors.
@@ -108,8 +107,8 @@ $(document).ready(function() {
 
   // Get id of element clicked by user
   $("#color-picker").click(function(event) {
-    userAnswer = event.target;
-    if (targetColor == userAnswer.textContent) {
+    userAnswer = event.target.id;
+    if (targetColor === userAnswer) {
       alert('Correct!');      
       reset();
     }
