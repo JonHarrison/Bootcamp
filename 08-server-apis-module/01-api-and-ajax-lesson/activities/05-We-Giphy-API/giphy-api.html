@@ -8,16 +8,22 @@
 
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="./script.js">
+  <script type="text/javascript"> <!-- src="./script.js" -->
     // Example queryURL for Giphy API
     var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
 
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
-      console.log(response);
-    });
+    })
+      .done(function (response) {
+        console.log(response);
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        // Request failed. Show error message to user.
+        // errorThrown has error message, or "timeout" in case of timeout.
+        alert('HTTP response status code ' + jqXHR.status + ' text : ' + textStatus + ' error : ' + errorThrown);
+      })
   </script>
 
 </body>
