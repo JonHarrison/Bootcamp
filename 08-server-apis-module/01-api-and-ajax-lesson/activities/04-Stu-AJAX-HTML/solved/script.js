@@ -21,33 +21,44 @@ $.ajax({
 });
 
 // Repeat the above logic to add rows for two more movies of your choice
-fetchMovieDetails('Labyrinth');
-fetchMovieDetails('2001');
 // BONUS: Once complete, try to make your code as DRY as possible through the use of functions
+
 function displayMovieDetails(Title, Year, Actors) {
-      // Create and save a reference to new empty table row
-      var newTr = $('<tr>');
-      // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
-      var tdTitle = $('<td>').text(Title);
-      var tdYear = $('<td>').text(Year);
-      var tdActors = $('<td>').text(Actors);
-      // Append the td elements to the new table row
-      newTr.append(tdTitle, tdYear, tdActors);
-      // Append the table row to the tbody element
-      $('tbody').append(newTr);
+      // // Create and save a reference to new empty table row
+      // var newTr = $('<tr>');
+      // // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
+      // var tdTitle = $('<td>').text(Title);
+      // var tdYear = $('<td>').text(Year);
+      // var tdActors = $('<td>').text(Actors);
+      // // Append the td elements to the new table row
+      // newTr.append(tdTitle, tdYear, tdActors);
+      // // Append the table row to the tbody element
+      // $('tbody').append(newTr);
+
+      const tbEl = $('tbody');
+      tbEl.append($('<tr>').append([
+        $('<td>').text(Title),
+        $('<td>').text(Year),
+        $('<td>').text(Actors)
+      ]));
 }
 
-function fetchMovieDetails(movie) {
-  var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+const mapData = (response) => {
+  const { Title, Year, Actors } = response;
+  displayMovieDetails(Title, Year, Actors);
+}
 
+const movies = [ 'Labyrinth' , '2001' ];
+movies.forEach(movie => {
+  const queryURL = (movie) => { return `https://www.omdbapi.com/?t=${movie}&apikey=trilogy`; };
   $.ajax({
-    type: 'GET', url: queryURL,
+    type: 'GET', url: queryURL(movie),
     success: function(response, text) {
       console.log(response);
-      displayMovieDetails(response.Title, response.Year, response.Actors);
+      mapData(response);
     },
     error: function(request, status, error) {
       alert(request.responseText);
     }
   });
-}
+});
