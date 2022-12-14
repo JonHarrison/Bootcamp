@@ -13,7 +13,7 @@ function renderButtons() {
 }
 
 function renderMovie(movie) {
-  buttonsView.append($('<button>', { text: movie }));
+  buttonsView.append($('<button>', { class:'movie', 'data-name':movie, text: movie }));
 }
 
 // This function handles events where one button is clicked
