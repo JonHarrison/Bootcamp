@@ -22,7 +22,9 @@ $("#add-movie").on("click", function (event) {
   // Prevent screen refresh
   event.preventDefault();
   // Here we grab the text from the input box
-  let movie = $('#movie-input').val();
+  let movie = $('#movie-input').val().trim();
+  // Add movie to the existing array, not necessary but belt and braces
+  movies.push(movie);
   renderMovie(movie);
 });
 
