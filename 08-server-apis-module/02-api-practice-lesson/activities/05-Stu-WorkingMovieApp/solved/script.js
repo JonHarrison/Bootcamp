@@ -1,13 +1,14 @@
-const buttonsView = $('#buttons-view');
+const buttonsViewEl = $('#buttons-view');
+const moviesViewEl = $('#movies-view');
 
 // Initial array of movies
 var movies = ["The Matrix", "Dune", "Mr. Right", "The Lion King"];
 
 // displayMovieInfo function re-renders the HTML to display the appropriate content
-function displayMovieInfo() {
+function displayMovieInfo(event) {
 
-  var movie = $(this).attr("data-name");
-  var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+  var movie = event.target.getAttribute("data-name");
+  var queryURL = `https://www.omdbapi.com/?t=${movie}&apikey=trilogy`;
 
   // Creates AJAX call for the specific movie button being clicked
   $.ajax({
@@ -16,27 +17,31 @@ function displayMovieInfo() {
   }).then(function (response) {
 
     // YOUR CODE GOES HERE!!!
-
     console.log(response);
 
     // Creates a div to hold the movie
-    let movieEl = $('<div>');
+    let movieEl = $('<div class="movie">');
 
     // Retrieves the Rating Data
+    let rated = response.Rated;
+    let ratedEl = $('<p>', { text: `Rated : ${rated}` });
+    movieEl.append(ratedEl);
+
     let ratings = response.Ratings;
     // Creates an element to have the rating displayed
+    movieEl.append($('<p>', { text: 'Reviews'}));
     ratings.forEach((rating) => {
-      let ratingsEl = $('<p>');
-      ratingsEl.text(`Source : ${rating.Source} , Value : ${rating.Value}`);
+      let reviewEl = $('<p>');
+      reviewEl.text(`Source : ${rating.Source} , Value : ${rating.Value}`);
       // Displays the rating
-      movieEl.append(ratingsEl);
+      movieEl.append(reviewEl);
     });
 
     // Retrieves the release year
     let releaseYear = response.Year;
 
     // Creates an element to hold the release year
-    let releaseYearEl = $('<p>', { text:releaseYear });
+    let releaseYearEl = $('<p>', { text: `Released : ${releaseYear}` });
 
     // Displays the release year
     movieEl.append(releaseYearEl);
@@ -45,19 +50,19 @@ function displayMovieInfo() {
     let plot = response.Plot;
 
     // Creates an element to hold the plot
-    let plotEl = $('<p>', { text:plot });
+    let plotEl = $('<p>', { text: `Plot : ${plot}` });
 
     // Appends the plot
     movieEl.append(plotEl);
 
     // Creates an element to hold the image
-    let imageEl = $('<img>', { src:response.Poster });
+    let imageEl = $('<img>', { src:response.Poster, alt:response.Poster });
 
     // Appends the image
     movieEl.append(imageEl);
 
     // Puts the entire Movie above the previous movies.
-    $('#movies-view').prepend(movieEl);
+    $(moviesViewEl).prepend(movieEl);
 
   });
 
@@ -73,7 +78,7 @@ function renderButtons() {
 }
 
 function renderMovie(movie) {
-  buttonsView.append($('<button>', { class:'movie', 'data-name':movie, text: movie }));
+  buttonsViewEl.append($('<button>', { class:'movie-btn', 'data-name':movie, text: movie }));
 }
 
 // This function handles events where one button is clicked
@@ -89,7 +94,7 @@ $("#add-movie").on("click", function (event) {
 });
 
 // Adding click event listeners to all elements with a class of "movie"
-$('#buttons-view').on("click", ".movie", displayMovieInfo);
+$(buttonsViewEl).on("click", ".movie-btn", displayMovieInfo);
 
 // Calling the renderButtons function to display the initial list of movies
 renderButtons();
