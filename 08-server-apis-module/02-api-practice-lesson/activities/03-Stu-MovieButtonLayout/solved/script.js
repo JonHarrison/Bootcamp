@@ -1,19 +1,30 @@
- // Initial array of movies
- var movies = ["The Matrix", "Dune", "Mr. Right", "The Lion King"];
+const buttonsView = $('#buttons-view');
 
- // Function for displaying movie data
- function renderButtons() {
+// Initial array of movies
+const movies = ["The Matrix", "Dune", "Mr. Right", "The Lion King"];
 
-   // YOUR CODE GOES HERE
+// Function for displaying movie data
+function renderButtons() {
+  // YOUR CODE GOES HERE
+  movies.forEach((movie) => {
+    renderMovie(movie);
+  });
 
- }
+}
 
- // This function handles events where one button is clicked
- $("#add-movie").on("click", function() {
+function renderMovie(movie) {
+  buttonsView.append($('<button>', { text: movie }));
+}
 
-   // YOUR CODE GOES HERE
+// This function handles events where one button is clicked
+$("#add-movie").on("click", function (event) {
+  // YOUR CODE GOES HERE
+  // Prevent screen refresh
+  event.preventDefault();
+  // Here we grab the text from the input box
+  let movie = $('#movie-input').val();
+  renderMovie(movie);
+});
 
- });
-
- // Calling the renderButtons function to display the initial list of movies
- renderButtons();
+// Calling the renderButtons function to display the initial list of movies
+renderButtons();
