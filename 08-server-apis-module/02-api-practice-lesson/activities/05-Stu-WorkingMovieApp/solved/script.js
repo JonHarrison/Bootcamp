@@ -89,7 +89,7 @@ $("#add-movie").on("click", function (event) {
 });
 
 // Adding click event listeners to all elements with a class of "movie"
-$(document).on("click", ".movie", displayMovieInfo);
+$('#buttons-view').on("click", ".movie", displayMovieInfo);
 
 // Calling the renderButtons function to display the initial list of movies
 renderButtons();
