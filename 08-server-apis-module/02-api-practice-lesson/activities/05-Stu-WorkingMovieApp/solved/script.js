@@ -1,3 +1,5 @@
+const buttonsView = $('#buttons-view');
+
 // Initial array of movies
 var movies = ["The Matrix", "Dune", "Mr. Right", "The Lion King"];
 
@@ -63,44 +65,32 @@ function displayMovieInfo() {
 
 // Function for displaying movie data
 function renderButtons() {
+  // YOUR CODE GOES HERE
+  movies.forEach((movie) => {
+    renderMovie(movie);
+  });
 
-  // Deletes the movies prior to adding new movies
-  // (this is necessary otherwise you will have repeat buttons)
-  $("#buttons-view").empty();
-
-  // Loops through the array of movies
-  for (var i = 0; i < movies.length; i++) {
-
-    // Then dynamicaly generates buttons for each movie in the array
-    // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-    var a = $("<button>");
-    // Adds a class of movie to our button
-    a.addClass("movie");
-    // Added a data-attribute
-    a.attr("data-name", movies[i]);
-    // Provided the initial button text
-    a.text(movies[i]);
-    // Added the button to the buttons-view div
-    $("#buttons-view").append(a);
-  }
 }
 
-// This function handles events where the add movie button is clicked
+function renderMovie(movie) {
+  buttonsView.append($('<button>', { class:'movie', 'data-name':movie, text: movie }));
+}
+
+// This function handles events where one button is clicked
 $("#add-movie").on("click", function (event) {
+  // YOUR CODE GOES HERE
+  // Prevent screen refresh
   event.preventDefault();
-  // This line of code will grab the input from the textbox
-  var movie = $("#movie-input").val().trim();
-
-  // The movie from the textbox is then added to our array
+  // Here we grab the text from the input box
+  let movie = $('#movie-input').val().trim();
+  // Add movie to the existing array, not necessary but belt and braces
   movies.push(movie);
-
-  // Calling renderButtons which handles the processing of our movie array
-  renderButtons();
-
+  renderMovie(movie);
 });
 
 // Adding click event listeners to all elements with a class of "movie"
 $(document).on("click", ".movie", displayMovieInfo);
 
-// Calling the renderButtons function to display the initial buttons
+// Calling the renderButtons function to display the initial list of movies
 renderButtons();
+
