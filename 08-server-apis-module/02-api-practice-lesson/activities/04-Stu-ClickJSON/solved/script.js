@@ -31,7 +31,7 @@ $("#add-movie").on("click", function (event) {
 // Calling the renderButtons function to display the initial list of movies
 renderButtons();
 
-$('.movie').on('click', function(event) {
+$('#buttons-view').on('click', '.movie', function(event) {
   let movie = event.target.getAttribute('data-name');
   var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
   $.ajax({
