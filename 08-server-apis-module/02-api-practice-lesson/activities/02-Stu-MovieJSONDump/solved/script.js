@@ -1,5 +1,5 @@
- // This .on("click") function will trigger the AJAX Call
- $("#find-movie").on("click", function(event) {
+// This .on("click") function will trigger the AJAX Call
+$("#find-movie").on("click", function (event) {
 
   // Preventing the submit button from trying to submit the form
   // We're optionally using a form so the user may hit Enter to search instead of clicking the button
@@ -19,6 +19,12 @@
   // =================================================================
 
   // CODE GOES HERE
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+    $('#movie-view').text(JSON.stringify(response));
+  });
 
   // =================================================================
 });
