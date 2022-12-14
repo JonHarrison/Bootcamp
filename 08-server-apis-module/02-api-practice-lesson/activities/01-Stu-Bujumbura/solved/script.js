@@ -32,9 +32,9 @@ $.ajax({
   // Create CODE HERE to transfer content to HTML
   const render = (city,windspeed,humidity,temp) => {
     $('.city').text('City : ' + city);
-    $('.wind').text('Windspeed : ' + convertMStoMPH(windspeed).toFixed(2) + 'MPH');
+    $('.wind').text('Windspeed : ' + convertMStoMPH(windspeed).toFixed(2) + 'mph');
     $('.humidity').text('Humidity : ' + humidity + '%');
-    $('.temp').text('Temperature : ' + convertKtoC(temp) + '\xB0' + 'C');
+    $('.temp').text('Temperature : ' + convertKtoC(temp).toFixed(2) + '\xB0' + 'C');
   }
   
   // Create CODE HERE to dump the temperature content into HTML
