@@ -19,53 +19,38 @@ function displayMovieInfo(event) {
     // YOUR CODE GOES HERE!!!
     console.log(response);
 
-    // Creates a div to hold the movie
-    let movieEl = $('<div class="movie">');
-
-    // Retrieves the Rating Data
-    let rated = response.Rated;
-    let ratedEl = $('<p>', { text: `Rated : ${rated}` });
-    movieEl.append(ratedEl);
-
-    let ratings = response.Ratings;
-    // Creates an element to have the rating displayed
-    movieEl.append($('<p>', { text: 'Reviews'}));
-    ratings.forEach((rating) => {
-      let reviewEl = $('<p>');
-      reviewEl.text(`Source : ${rating.Source} , Value : ${rating.Value}`);
-      // Displays the rating
-      movieEl.append(reviewEl);
-    });
-
-    // Retrieves the release year
-    let releaseYear = response.Year;
-
-    // Creates an element to hold the release year
-    let releaseYearEl = $('<p>', { text: `Released : ${releaseYear}` });
-
-    // Displays the release year
-    movieEl.append(releaseYearEl);
-
-    // Retrieves the plot
-    let plot = response.Plot;
-
-    // Creates an element to hold the plot
-    let plotEl = $('<p>', { text: `Plot : ${plot}` });
-
-    // Appends the plot
-    movieEl.append(plotEl);
-
-    // Creates an element to hold the image
-    let imageEl = $('<img>', { src:response.Poster, alt:response.Poster });
-
-    // Appends the image
-    movieEl.append(imageEl);
-
     // Puts the entire Movie above the previous movies.
-    $(moviesViewEl).prepend(movieEl);
-
-  });
-
+    $(moviesViewEl).prepend([
+      $('<div class="movie">').append([
+        $('<p>', { text: `Rated : ${response.Rated}` }),
+        $('<p>', { text: 'Reviews' }),
+        $('<ul>', { id: 'ratings' }).css('list-style','none').append([
+            // $.each(response.Ratings, function(i,rating) {
+            //   console.log(`Source:${rating.Source} , Value:${rating.Value}`);
+            //   $(`<li>${rating.Source} , ${rating.Value}<\li>`)
+            //   $('#ratings').append($(`<li>${rating.Source} , ${rating.Value}<\li>`))
+            // }),
+            // response.Ratings.forEach(function(data,index) {
+            //   let rating = response.Ratings[index];
+            //   console.log(`Source:${rating.Source} , Value:${rating.Value}`);
+            //   $(`<li>${rating.Source} , ${rating.Value}<\li>`)
+            // }),
+            // $('<li>test item</li>'),
+            // $.each(response.Ratings, function(i,rating) {
+            //   console.log(`Source:${rating.Source} , Value:${rating.Value}`);
+            //   $('#ratings').append($('<li>', { text: `${rating.Source} , ${rating.Value}` }));
+            // })
+        ]),
+        $('<p>', { text: `Released : ${response.Year}` }),
+        $('<p>', { text: `Plot : ${response.Plot}` }),
+        $('<img>', { src:response.Poster, alt:response.Poster })
+      ])
+    ]);
+    $.each(response.Ratings, function(i,rating) {
+      console.log(`Source:${rating.Source} , Value:${rating.Value}`);
+      $('#ratings').append($('<li>', { text: `${rating.Source} , ${rating.Value}` }));
+    });
+  })
 }
 
 // Function for displaying movie data
@@ -98,4 +83,3 @@ $(buttonsViewEl).on("click", ".movie-btn", displayMovieInfo);
 
 // Calling the renderButtons function to display the initial list of movies
 renderButtons();
-
