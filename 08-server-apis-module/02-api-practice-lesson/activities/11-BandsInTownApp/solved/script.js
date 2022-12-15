@@ -8,17 +8,21 @@ function searchBandsInTown(artist) {
   }).then(function (response) {
     console.log(response);
     // Using jQuery, append the following to the #artist-div :
-    $('#artist-div').append([
+    // destucture and rename to make JSON access simpler
+    const { name, thumb_url: thumb, tracker_count: tracker , upcoming_event_count: events, url } = response;
+    const artistEl = $('#artist-div');
+    artistEl.empty(); // remove any existing elements
+    artistEl.append([
       // The artist's name
-      $('<p>', { text: response.name }),
+      $('<p>', { text: `Artist's name : ${name}` }),
       // The artists thumbnail image
-      $('<img>', { src: response.thumb_url }),
+      $('<img>', { src: thumb }),
       // The number of fans tracking this artist
-      $('<p>', { text: response.fanTrack }),
+      $('<p>', { text: `Fan's tracking : ${tracker}` }),
       // The number of upcoming events for this artist
-      $('<p>', { text: response.upcoming_event_count }),
+      $('<p>', { text: `Upcoming events : ${events}` }),
       // A link to the bandsintown url for this artist
-      $('<a>', { href: response.url, text: response.url }),
+      $('<a>', { href: url, text: 'Bandintown artist link' }),
       // Note: Append actual HTML elements, not just text
     ]);
   });
