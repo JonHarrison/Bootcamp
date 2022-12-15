@@ -15,8 +15,9 @@
     //
     $("#cat-button").on("click", function() {
 
-      //
-      var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats&rating=pg";
+      const API_KEY = 'GJUp38aO52ySHIvyIIZRm5s9bRDJS7yQ';
+      // Generate query URL
+      var queryURL = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
 
       //
       $.ajax({
