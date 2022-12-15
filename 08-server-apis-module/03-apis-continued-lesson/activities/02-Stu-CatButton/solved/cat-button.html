@@ -19,26 +19,26 @@
       // Generate query URL
       var queryURL = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
 
-      //
+      // Use AJAX to call GIPHY API
       $.ajax({
         url: queryURL,
         method: "GET"
       })
 
-      //
+      // Process reponse
         .then(function(response) {
 
-        //
+        // Get image URL
         var imageUrl = response.data.images.original.url;
 
-          //
+          // Create IMG element
           var catImage = $("<img>");
 
-          //
+          // Set src and alt properties
           catImage.attr("src", imageUrl);
           catImage.attr("alt", "cat image");
 
-          //
+          // Prepend image to images id
           $("#images").prepend(catImage);
         });
     });
