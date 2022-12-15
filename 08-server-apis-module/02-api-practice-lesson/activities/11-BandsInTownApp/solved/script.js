@@ -22,7 +22,7 @@ function searchBandsInTown(artist) {
       // The number of upcoming events for this artist
       $('<p>', { text: `Upcoming events : ${events}` }),
       // A link to the bandsintown url for this artist
-      $('<a>', { href: url, text: 'Bandintown artist link' }),
+      $('<a>', { href: url, text: 'Bandsintown artist link' }),
       // Note: Append actual HTML elements, not just text
     ]);
   });
