@@ -4,7 +4,7 @@ $("button").on("click", function() {
   var person = $(this).attr("data-person");
   // generate query URL to retrieve gifs of that person using the Giphy API
   const API_KEY = 'GJUp38aO52ySHIvyIIZRm5s9bRDJS7yQ';
-  var queryURL = `https://api.giphy.com/v1/gifs/search?q=${person}&api_key=${API_KEY}`;
+  var queryURL = `https://api.giphy.com/v1/gifs/search?q=${person}&api_key=${API_KEY}&limit=10`;
 
   // query Giphy
   $.ajax({
