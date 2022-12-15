@@ -12,33 +12,33 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-    //
+    // Click event handler for cat-button id selector
     $("#cat-button").on("click", function() {
 
       const API_KEY = 'GJUp38aO52ySHIvyIIZRm5s9bRDJS7yQ';
-      // Generate query URL
-      var queryURL = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=cats&rating=pg`;
+      // Generate query URL for Giphy API query string
+      var queryURL = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=dog&rating=pg`;
 
-      // Use AJAX to call GIPHY API
+      // Use AJAX to call Giphy API
       $.ajax({
         url: queryURL,
         method: "GET"
       })
 
-        // AJAX promise to handle the return of the GET
+        // AJAX promise to wait for the GET to complete and provide callback function to handle the response
         .then(function(response) {
 
-        // Get image URL
+        // Get image URL and assign to imageUrl
         var imageUrl = response.data.images.original.url;
 
-          // Create IMG element
+          // Create IMG element called catImage
           var catImage = $("<img>");
 
-          // Set src and alt properties
+          // Set src and alt tags for catImage
           catImage.attr("src", imageUrl);
           catImage.attr("alt", "cat image");
 
-          // Prepend image to images id
+          // Prepend catImage to images id selector in the DOM
           $("#images").prepend(catImage);
         });
     });
