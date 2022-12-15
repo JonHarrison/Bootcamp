@@ -20,9 +20,13 @@ function displayMovieInfo(event) {
     console.log(response);
 
     // Puts the entire Movie above the previous movies.
+
+    // Destructure response object
+    const { Rated, Year, Plot, Poster, Ratings, ...rest } = response;
+    
     $(moviesViewEl).prepend([
       $('<div class="movie">').append([
-        $('<p>', { text: `Rated : ${response.Rated}` }),
+        $('<p>', { text: `Rated : ${Rated}` }),
         $('<p>', { text: 'Reviews' }),
         $('<ul>', { id: 'ratings' }).css('list-style','none').append([
             // $.each(response.Ratings, function(i,rating) {
@@ -41,15 +45,17 @@ function displayMovieInfo(event) {
             //   $('#ratings').append($('<li>', { text: `${rating.Source} , ${rating.Value}` }));
             // })
         ]),
-        $('<p>', { text: `Released : ${response.Year}` }),
-        $('<p>', { text: `Plot : ${response.Plot}` }),
-        $('<img>', { src:response.Poster, alt:response.Poster })
+        $('<p>', { text: `Released : ${Year}` }),
+        $('<p>', { text: `Plot : ${Plot}` }),
+        $('<img>', { src:Poster, alt:Poster })
       ])
     ]);
-    $.each(response.Ratings, function(i,rating) {
+    
+    $.each(Ratings, function(i,rating) {
       console.log(`Source:${rating.Source} , Value:${rating.Value}`);
       $('#ratings').append($('<li>', { text: `${rating.Source} , ${rating.Value}` }));
     });
+    
   })
 }
 
