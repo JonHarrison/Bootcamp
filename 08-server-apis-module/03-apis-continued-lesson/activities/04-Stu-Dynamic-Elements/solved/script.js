@@ -28,7 +28,7 @@ $("button").on("click", function () {
       // Make a paragraph tag with jQuery and store it in a variable named p.
       let p = $('<p>');
       // Set the inner text of the paragraph to the rating of the image in results[i].
-      p.text(results[i].rating);
+      p.text('Rating : ' + results[i].rating);
       // Make an image tag with jQuery and store it in a variable named animalImage.
       let animalImage = $('<img>');
       // Set the image's src to results[i]'s fixed_height.url.
