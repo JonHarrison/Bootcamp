@@ -23,39 +23,22 @@ function displayMovieInfo(event) {
 
     // Destructure response object
     const { Rated, Year, Plot, Poster, Ratings, ...rest } = response;
-    
+
     $(moviesViewEl).prepend([
       $('<div class="movie">').append([
         $('<p>', { text: `Rated : ${Rated}` }),
         $('<p>', { text: 'Reviews' }),
-        $('<ul>', { id: 'ratings' }).css('list-style','none').append([
-            // $.each(response.Ratings, function(i,rating) {
-            //   console.log(`Source:${rating.Source} , Value:${rating.Value}`);
-            //   $(`<li>${rating.Source} , ${rating.Value}<\li>`)
-            //   $('#ratings').append($(`<li>${rating.Source} , ${rating.Value}<\li>`))
-            // }),
-            // response.Ratings.forEach(function(data,index) {
-            //   let rating = response.Ratings[index];
-            //   console.log(`Source:${rating.Source} , Value:${rating.Value}`);
-            //   $(`<li>${rating.Source} , ${rating.Value}<\li>`)
-            // }),
-            // $('<li>test item</li>'),
-            // $.each(response.Ratings, function(i,rating) {
-            //   console.log(`Source:${rating.Source} , Value:${rating.Value}`);
-            //   $('#ratings').append($('<li>', { text: `${rating.Source} , ${rating.Value}` }));
-            // })
-        ]),
+        $('<ul>', { id: 'ratings' }).css('list-style', 'none').append(
+          response.Ratings.map(function (rating, i) {
+            return $(`<li>${rating.Source} , ${rating.Value}<\li>`);
+          })
+        ),
         $('<p>', { text: `Released : ${Year}` }),
         $('<p>', { text: `Plot : ${Plot}` }),
-        $('<img>', { src:Poster, alt:Poster })
+        $('<img>', { src: Poster, alt: Poster })
       ])
     ]);
-    
-    $.each(Ratings, function(i,rating) {
-      console.log(`Source:${rating.Source} , Value:${rating.Value}`);
-      $('#ratings').append($('<li>', { text: `${rating.Source} , ${rating.Value}` }));
-    });
-    
+
   })
 }
 
@@ -69,7 +52,7 @@ function renderButtons() {
 }
 
 function renderMovie(movie) {
-  buttonsViewEl.append($('<button>', { class:'movie-btn', 'data-name':movie, text: movie }));
+  buttonsViewEl.append($('<button>', { class: 'movie-btn', 'data-name': movie, text: movie }));
 }
 
 // This function handles events where one button is clicked
