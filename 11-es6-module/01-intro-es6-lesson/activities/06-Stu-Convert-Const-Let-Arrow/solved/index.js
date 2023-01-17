@@ -3,7 +3,7 @@ const $root = document.querySelector("#root");
 let score;
 let targetScore;
 
-const makeGuess = function() {
+const makeGuess = () => {
   const $score = document.querySelector("#root p");
   $score.textContent = "Score: " + score + " | " + "Target: " + targetScore;
 
@@ -16,7 +16,7 @@ const makeGuess = function() {
   }
 };
 
-var Crystal = function(color) {
+const Crystal = function(color) {
   this.element = document.createElement("div");
   this.element.className = "crystal " + color;
   this.value = 0;
@@ -38,7 +38,7 @@ Crystal.prototype.render = function(target) {
 
 const crystals = [new Crystal("red"), new Crystal("blue"), new Crystal("green")];
 
-const playRound = function() {
+const playRound = () => {
   const fragment = document.createDocumentFragment();
   const $score = document.createElement("p");
   targetScore = Math.floor(Math.random() * 50) + 25;
