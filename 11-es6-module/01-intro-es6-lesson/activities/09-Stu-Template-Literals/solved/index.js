@@ -10,9 +10,9 @@ const music = {
 const { title, artist, album } = music;
 const songSnippet = `
   <div class="song">
-    <h2>${title}</h2>
-    <p>${artist}</p>
-    <p>${album}</p>
+    <h2>Title : ${title}</h2>
+    <p>Artist : ${artist}</p>
+    <p>Album : ${album}</p>
   </div>
 `;
 
