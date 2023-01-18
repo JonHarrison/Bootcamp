@@ -22,7 +22,8 @@ inquirer
         },
     ])
     .then((response) => {
-        fs.writeFile('output.txt', JSON.stringify(response), (err) => {
+        const filename = `${response.name.toLowerCase().split(' ').join('')}.json`;
+        fs.writeFile(filename, JSON.stringify(response), (err) => {
             err ? console.error(err) : console.log(response);
         })
     })
