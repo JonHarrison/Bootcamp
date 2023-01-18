@@ -1,5 +1,5 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
+import inquirer from 'inquirer';
+import fs from 'fs';
 
 inquirer
     .prompt([
