@@ -2,13 +2,14 @@
 const maths = require('./maths.js');
 
 (function unitTests() {
-    console.log("Unit tests");
-    console.log("[");
-    console.log(`sum        : ${maths.sum(1,2) === 3 ? 'PASS' : 'FAIL'}`);
-    console.log(`difference : ${maths.difference(3,4) === -1 ? 'PASS' : 'FAIL'}`);
-    console.log(`product    : ${maths.product(3,4) === 12 ? 'PASS' : 'FAIL'}`);
-    console.log(`quotient   : ${maths.quotient(3,4) === 0.75 ? 'PASS' : 'FAIL'}`);
-    console.log("]\n");
+    console.log(
+`Unit tests
+[
+    sum        : ${maths.sum(1, 2) === 3 ? 'PASS' : 'FAIL'}
+    difference : ${maths.difference(3, 4) === -1 ? 'PASS' : 'FAIL'}
+    product    : ${maths.product(3, 4) === 12 ? 'PASS' : 'FAIL'}
+    quotient   : ${maths.quotient(3, 4) === 0.75 ? 'PASS' : 'FAIL'}
+]\n`);
 })();
 
 (function doMaths() {
