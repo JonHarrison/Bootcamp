@@ -13,8 +13,7 @@
         return;
     }
 
-    const arg1 = process.argv[2];
-    const arg2 = process.argv[3];
+    const [,, arg1, arg2] = process.argv;
     console.log(`Are the supplied arguments (${arg1} and ${arg2}) the same ? ${arg1 === arg2 ? 'true' : 'false'}`);
 
 })();
