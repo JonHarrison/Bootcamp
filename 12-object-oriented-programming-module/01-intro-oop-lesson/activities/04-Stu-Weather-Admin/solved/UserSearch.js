@@ -8,7 +8,8 @@ const UserSearch = function (name, location) {
   this.date = Date.now();
 
   this.getWeather = () => {
-    weather.search(
+    // https://www.npmjs.com/package/weather-js
+    weather.find(
       { search: this.location, degreeType: 'C' },
       (err, result) => {
         if (err) {
