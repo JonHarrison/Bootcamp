@@ -5,7 +5,7 @@ const weather = require('weather-js');
 const UserSearch = function (name, location) {
   this.name = name;
   this.location = location;
-  this.date = Date.Now();
+  this.date = Date.now();
 
   this.getWeather = () => {
     weather.search(
