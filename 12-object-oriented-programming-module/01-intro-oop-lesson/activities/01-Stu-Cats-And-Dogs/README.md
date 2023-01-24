@@ -10,7 +10,7 @@ In this activity, you will make a cats object and a dogs object, each with three
 
   * Second key called `noise` with a value of "Woof!"
 
-  * Third key called "`akeNoise`" which contains a function that console.logs the noise to the screen if it is raining dogs.
+  * Third key called "`makeNoise`" which contains a function that console.logs the noise to the screen if it is raining dogs.
 
 * Next, make a cats object with three keys:
 
