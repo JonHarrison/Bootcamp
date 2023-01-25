@@ -4,7 +4,7 @@ const moment = require('moment');
 
 const WeatherAdmin = function () {
   this.getData = () => {
-    fs.readFile('log.txt', 'utf8', (data, error) => {
+    fs.readFile('log.txt', 'utf8', (error, data) => {
       console.log(data);
     });
   };
