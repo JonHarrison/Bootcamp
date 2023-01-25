@@ -15,7 +15,7 @@ const WeatherAdmin = function () {
       newUserSearch.location
     } Date: ${moment(newUserSearch.date).format('DD/MM/YYYY')}`;
 
-    fs.appendFile('log.txt', 'utf-8', logTxt, (err) => {
+    fs.appendFile('log.txt', logTxt, { encoding:'utf8' }, (err) => {
       if (err) throw err;
     });
 
