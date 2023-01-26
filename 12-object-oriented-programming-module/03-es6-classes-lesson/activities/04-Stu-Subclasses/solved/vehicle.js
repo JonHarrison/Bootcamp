@@ -10,4 +10,5 @@ class Vehicle {
     console.log(`This vehicle has an id of ${this.id}`);
   }
 }
-module.exports = Vehicle;
+
+export default Vehicle;
