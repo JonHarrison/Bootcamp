@@ -5,13 +5,15 @@ class Form extends Component {
   // Setting the component's initial state
   state = {
     firstName: "",
-    lastName: ""
+    lastName: "",
+    password: ""
   };
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     const value = event.target.value;
     const name = event.target.name;
+    const password = event.target.password;
 
     // Updating the input's state
     this.setState({
@@ -24,10 +26,11 @@ class Form extends Component {
     event.preventDefault();
 
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
-    alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
+    alert(`Hello ${this.state.firstName} ${this.state.lastName} ${this.state.password}`);
     this.setState({
       firstName: "",
-      lastName: ""
+      lastName: "",
+      password: ""
     });
   };
 
@@ -36,7 +39,7 @@ class Form extends Component {
     return (
       <div>
         <p>
-          Hello {this.state.firstName} {this.state.lastName}
+          Hello {this.state.firstName} {this.state.lastName} {this.state.password}
         </p>
         <form className="form">
           <input
@@ -52,6 +55,13 @@ class Form extends Component {
             onChange={this.handleInputChange}
             type="text"
             placeholder="Last Name"
+          />
+          <input
+            value={this.state.password}
+            name="password"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="Password"
           />
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
