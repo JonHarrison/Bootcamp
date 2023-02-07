@@ -17,9 +17,9 @@ const App = () => {
         <Navbar />
         <Wrapper>
           <Routes>
-            <Route exact path="/" component={Search} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/search" component={Search} />
+            <Route exact path="/" element={<Search />} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/search" element={<Search />} />
           </Routes>
         </Wrapper>
         <Footer />
