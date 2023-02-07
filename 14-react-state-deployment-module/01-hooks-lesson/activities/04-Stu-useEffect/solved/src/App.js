@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -16,9 +16,11 @@ const App = () => {
       <div>
         <Navbar />
         <Wrapper>
-          <Route exact path="/" component={Search} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/search" component={Search} />
+          <Routes>
+            <Route exact path="/" component={Search} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/search" component={Search} />
+          </Routes>
         </Wrapper>
         <Footer />
       </div>
