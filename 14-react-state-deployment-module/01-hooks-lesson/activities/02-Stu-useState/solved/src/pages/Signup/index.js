@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "../../components/Container";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
 
 const Signup = () => {
+
+  const [formStatus, setFormStatus] = useState({
+    username: '',
+    password: ''
+  });
+
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(e.target.elements);
+    const { username, password } = e.target.elements;
+    let signupForm = {
+      username: username.value,
+      password: password.value
+    }
+    setFormStatus(signupForm);
   };
 
   return (
@@ -35,8 +48,8 @@ const Signup = () => {
           </button>
         </Container>
         <Container className="mt-4">
-          <h3>Hello NAME_HERE!</h3>
-          <p>I probably shouldn't tell you this, but your password is PASSWORD_HERE}!</p>
+          <h3>Hello {formStatus.username}!</h3>
+          <p>I probably shouldn't tell you this, but your password is {formStatus.password}!</p>
         </Container>
       </form>
     </div>
