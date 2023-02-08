@@ -15,7 +15,7 @@ To get our environment set up properly, we will need to do the following in our 
      * `npx create-react-app click-counter-testing`
   2. Navigate into our project directory `cd click-counter` and delete the `node-modules` directory.
   3. Install React version 16 and Enzyme dependencies:
-       * `npm i --save react@16.14.0 react-dom@16.14.0 enzyme enzyme-adapter-react-16`
+       * `npm i --save react@16.14.0 react-dom@16.14.0 @testing-library/jest-dom@5.14.1 @testing-library/react@11.2.7 @testing-library/user-event@12.8.3 enzyme enzyme-adapter-react-16`
   4. Next, reinstall all other dependencies with `npm install`.
 
 ---
